@@ -47,6 +47,38 @@
             </objects>
             <point key="canvasLocation" x="808.79999999999995" y="77.811094452773617"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="ebI-t5-fBU">
+            <objects>
+                <viewController storyboardIdentifier="Detail" id="boW-6u-b0j" customClass="DetailViewController" customModule="Project1" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Jt2-3I-kN4"/>
+                        <viewControllerLayoutGuide type="bottom" id="IOO-Us-cM6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ICE-Sp-CmT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VFR-zT-FRP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VFR-zT-FRP" firstAttribute="top" secondItem="ICE-Sp-CmT" secondAttribute="top" id="27Y-d1-kW5"/>
+                            <constraint firstAttribute="trailing" secondItem="VFR-zT-FRP" secondAttribute="trailing" id="XPL-3W-nP7"/>
+                            <constraint firstItem="IOO-Us-cM6" firstAttribute="top" secondItem="VFR-zT-FRP" secondAttribute="bottom" id="dH6-Ax-TZH"/>
+                            <constraint firstItem="VFR-zT-FRP" firstAttribute="leading" secondItem="ICE-Sp-CmT" secondAttribute="leading" id="gYT-fg-ar1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="VFR-zT-FRP" id="6BQ-ee-apF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GTo-85-HgG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1773.5999999999999" y="64.31784107946028"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="uwV-n3-p6g">
             <objects>
