@@ -14,6 +14,12 @@ class ViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        performSelector(inBackground: #selector(fetchJSON), with: nil)
+        
+    }
+    
+    func fetchJSON() {
         let urlString: String
         
         if navigationController?.tabBarItem.tag == 0 {
@@ -25,15 +31,16 @@ class ViewController: UITableViewController {
         if let url = URL(string: urlString) {
             if let data = try? Data(contentsOf: url) {
                 let json = JSON(data: data)
-                
+                    
                 if json["metadata"]["responseInfo"]["status"].intValue == 200 {
-                    parse(json: json)
+                    self.parse(json: json)
                     return
                 }
             }
         }
-        // if we got to this point, we had an issue establishing a connection. 
-        showError()
+        
+        // if we got to this point, we had an issue establishing a connection.
+        performSelector(onMainThread: #selector(showError), with: nil, waitUntilDone: false)
     }
     
     func parse(json: JSON) {
@@ -45,7 +52,7 @@ class ViewController: UITableViewController {
             petitions.append(obj)
         }
         
-        tableView.reloadData()
+        tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,6 +82,7 @@ class ViewController: UITableViewController {
         let ac = UIAlertController(title: "Loading error", message: "There was a problem loading the feed. Please check your connection and try again.", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
+        
     }
 
 }
